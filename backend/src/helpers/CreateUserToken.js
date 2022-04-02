@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const auth = require("../config/auth");
 
 const createUserToken = async (user, req, res) => {
   const token = jwt.sign(
@@ -6,7 +7,8 @@ const createUserToken = async (user, req, res) => {
       name: user.name,
       id: user._id,
     },
-    "asOAMSDISA#2@sdjass$%$!dJSD829sd"
+    auth.jwt.secret,
+    auth.jwt.expiresIn
   );
 
   res
