@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 const createUserToken = require("../helpers/CreateUserToken");
 
-module.exports = class AutenticatedUserController {
+class AutenticatedUserController {
   static async handle(req, res) {
     const { email, password } = req.body;
 
@@ -36,4 +36,6 @@ module.exports = class AutenticatedUserController {
 
     await createUserToken(user, req, res);
   }
-};
+}
+
+module.exports = AutenticatedUserController;

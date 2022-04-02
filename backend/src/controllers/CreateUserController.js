@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 const createUserToken = require("../helpers/CreateUserToken");
 
-module.exports = class CreateUserController {
+class CreateUserController {
   static async handle(req, res) {
     const { name, email, password, confirmpassword, phone } = req.body;
 
@@ -67,4 +67,6 @@ module.exports = class CreateUserController {
       res.status(500).json({ message: error });
     }
   }
-};
+}
+
+module.exports = CreateUserController;

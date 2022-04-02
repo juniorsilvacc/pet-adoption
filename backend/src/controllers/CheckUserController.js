@@ -3,7 +3,7 @@ const auth = require("../config/auth");
 const User = require("../models/User");
 const getToken = require("../helpers/GetToken");
 
-module.exports = class CheckUserController {
+class CheckUserController {
   static async handle(req, res) {
     let currentUser;
 
@@ -20,4 +20,6 @@ module.exports = class CheckUserController {
 
     res.status(200).json(currentUser);
   }
-};
+}
+
+module.exports = CheckUserController;
