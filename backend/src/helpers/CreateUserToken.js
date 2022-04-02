@@ -8,7 +8,9 @@ const createUserToken = async (user, req, res) => {
       id: user._id,
     },
     auth.jwt.secret,
-    auth.jwt.expiresIn
+    {
+      expiresIn: "1d",
+    }
   );
 
   res
