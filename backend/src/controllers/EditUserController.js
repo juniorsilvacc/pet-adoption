@@ -5,15 +5,15 @@ const bcrypt = require("bcrypt");
 
 class EditUserController {
   static async handle(req, res) {
-    const id = req.params.id;
-
     // get user by token
     const token = getToken(req);
     const user = await getUserByToken(token);
 
     const { name, email, phone, password, confirmpassword } = req.body;
 
-    let image = "";
+    if (req.file) {
+      user.image = req.file.filename;
+    }
 
     // validations
     if (!name) {
