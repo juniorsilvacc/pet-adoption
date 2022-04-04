@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const CreatePetController = require("../controllers/CreatePetController");
+const GetAllPetsController = require("../controllers/GetAllPetsController");
 
 // middlewares
 const ensureAutenticated = require("../middlewares/ensureAutenticated");
@@ -13,5 +14,7 @@ router.post(
   imageUpload.array("images"),
   CreatePetController.handle
 );
+
+router.get("/", GetAllPetsController.handle);
 
 module.exports = router;
