@@ -2,7 +2,7 @@ const User = require("../models/User");
 
 class GetUserByIdController {
   static async handle(req, res) {
-    const id = req.params.id;
+    const { id } = req.params;
 
     const user = await User.findById(id).select("-password");
 

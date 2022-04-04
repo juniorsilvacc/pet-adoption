@@ -4,6 +4,7 @@ const CreatePetController = require("../controllers/CreatePetController");
 const GetAllPetsController = require("../controllers/GetAllPetsController");
 const GetAllPetsUserController = require("../controllers/GetAllPetsUserController");
 const GetAllUserAdoptionsController = require("../controllers/GetAllUserAdoptionsController");
+const GetPetByIdController = require("../controllers/GetPetByIdController");
 
 // middlewares
 const ensureAutenticated = require("../middlewares/ensureAutenticated");
@@ -26,5 +27,7 @@ router.get(
   ensureAutenticated,
   GetAllUserAdoptionsController.handle
 );
+
+router.get("/:id", GetPetByIdController.handle);
 
 module.exports = router;
