@@ -5,15 +5,15 @@ const getToken = require("../helpers/GetToken");
 
 class CreatePetController {
   static async handle(req, res) {
-    const { name, age, description, weight, color, images } = req.body;
+    const { name, age, description, weight, color } = req.body;
+
+    const images = req.files;
 
     const available = true;
 
     // get user by token
     const token = getToken(req);
     const user = await getUserByToken(token);
-
-    // upload images
 
     // validations
     if (!name) {
@@ -41,6 +41,11 @@ class CreatePetController {
       return;
     }
 
+    if (images.length === 0) {
+      res.status(422).json({ message: "Image is required" });
+      return;
+    }
+
     const pet = new Pet({
       name,
       age,
@@ -56,6 +61,11 @@ class CreatePetController {
         image: user.image,
         phone: user.phone,
       },
+    });
+
+    // upload images
+    images.map((image) => {
+      pet.images.push(image.filename);
     });
 
     try {
