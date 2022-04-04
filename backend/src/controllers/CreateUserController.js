@@ -29,6 +29,11 @@ class CreateUserController {
       return;
     }
 
+    if (password.length < 6) {
+      res.status(422).json({ message: "Minimum 6 characters" });
+      return;
+    }
+
     if (!confirmpassword) {
       res.status(422).json({ message: "Password confirmation is required" });
       return;
