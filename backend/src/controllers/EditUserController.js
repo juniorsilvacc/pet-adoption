@@ -17,15 +17,13 @@ class EditUserController {
 
     // validations
     if (!name) {
-      res.status(422).json({ message: "Name is required" });
-      return;
+      return res.status(422).json({ message: "Name is required" });
     }
 
     user.name = name;
 
     if (!email) {
-      res.status(422).json({ message: "E-mail is required" });
-      return;
+      return res.status(422).json({ message: "E-mail is required" });
     }
 
     // check if user exists
@@ -38,8 +36,7 @@ class EditUserController {
     user.email = email;
 
     if (!phone) {
-      res.status(422).json({ message: "Phone is required" });
-      return;
+      return res.status(422).json({ message: "Phone is required" });
     }
 
     user.phone = phone;

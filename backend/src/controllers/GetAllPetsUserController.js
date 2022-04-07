@@ -10,7 +10,7 @@ class GetAllPetsUserController {
     // filter
     const pets = await Pet.find({ "user._id": user._id }).sort("-createdAt");
 
-    res.status(200).json({ pets });
+    return res.status(200).json({ pets });
   }
 }
 

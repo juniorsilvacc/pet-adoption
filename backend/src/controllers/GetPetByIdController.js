@@ -12,10 +12,10 @@ class GetPetByIdController {
     const pets = await Pet.findById(id);
 
     if (!pets) {
-      res.status(404).json({ message: "Pet not found" });
+      return res.status(404).json({ message: "Pet not found" });
     }
 
-    res.status(200).json({ pets });
+    return res.status(200).json({ pets });
   }
 }
 

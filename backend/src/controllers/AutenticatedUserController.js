@@ -9,29 +9,25 @@ class AutenticatedUserController {
     const { email, password } = req.body;
 
     if (!email) {
-      res.status(422).json({ message: "E-mail is required" });
-      return;
+      return res.status(422).json({ message: "E-mail is required" });
     }
 
     if (!password) {
-      res.status(422).json({ message: "Password is required" });
-      return;
+      return res.status(422).json({ message: "Password is required" });
     }
 
     // check if user exists
     const user = await User.findOne({ email: email });
 
     if (!user) {
-      res.status(422).json({ message: "User not exists" });
-      return;
+      return res.status(422).json({ message: "User not exists" });
     }
 
     // check if password match with password
     const checkPassword = await bcrypt.compare(password, user.password);
 
     if (!checkPassword) {
-      res.status(422).json({ message: "Invalid email or password" });
-      return;
+      return res.status(422).json({ message: "Invalid email or password" });
     }
 
     await createUserToken(user, req, res);

@@ -16,7 +16,7 @@ class DeletePetByIdController {
 
     // check id found
     if (!pet) {
-      res.status(404).json({ message: "Pet not found" });
+      return res.status(404).json({ message: "Pet not found" });
     }
 
     // check if logged in user registered the pet
@@ -24,14 +24,14 @@ class DeletePetByIdController {
     const user = await getUserByToken(token);
 
     if (pet.user._id.toString() !== user._id.toString()) {
-      res
+      return res
         .status(422)
         .json({ message: "There was a problem processing your request" });
     }
 
     await Pet.findByIdAndRemove(id);
 
-    res.status(200).json({ message: "Pet successfully removed" });
+    return res.status(200).json({ message: "Pet successfully removed" });
   }
 }
 

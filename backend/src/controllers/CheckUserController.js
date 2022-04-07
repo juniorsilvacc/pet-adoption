@@ -18,7 +18,7 @@ class CheckUserController {
       currentUser = null;
     }
 
-    res.status(200).json(currentUser);
+    return res.status(200).json(currentUser);
   }
 }
 

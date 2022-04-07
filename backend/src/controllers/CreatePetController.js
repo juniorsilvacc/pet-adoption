@@ -17,33 +17,27 @@ class CreatePetController {
 
     // validations
     if (!name) {
-      res.status(422).json({ message: "Name is required" });
-      return;
+      return res.status(422).json({ message: "Name is required" });
     }
 
     if (!age) {
-      res.status(422).json({ message: "Age is required" });
-      return;
+      return res.status(422).json({ message: "Age is required" });
     }
 
     if (!description) {
-      res.status(422).json({ message: "Description is required" });
-      return;
+      return res.status(422).json({ message: "Description is required" });
     }
 
     if (!weight) {
-      res.status(422).json({ message: "Weight is required" });
-      return;
+      return res.status(422).json({ message: "Weight is required" });
     }
 
     if (!color) {
-      res.status(422).json({ message: "Color is required" });
-      return;
+      return res.status(422).json({ message: "Color is required" });
     }
 
     if (images.length === 0) {
-      res.status(422).json({ message: "Image is required" });
-      return;
+      return res.status(422).json({ message: "Image is required" });
     }
 
     const pet = new Pet({
@@ -71,9 +65,11 @@ class CreatePetController {
     try {
       const newPet = await pet.save();
 
-      res.status(201).json({ message: "Pet created successfully", newPet });
+      return res
+        .status(201)
+        .json({ message: "Pet created successfully", newPet });
     } catch (error) {
-      res.status(500).json({ message: error });
+      return res.status(500).json({ message: error });
     }
   }
 }

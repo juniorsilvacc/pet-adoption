@@ -4,7 +4,7 @@ class GetAllPetsController {
   static async handle(req, res) {
     const pets = await Pet.find().sort("-createdAt");
 
-    res.status(200).json({ pets });
+    return res.status(200).json({ pets });
   }
 }
 
