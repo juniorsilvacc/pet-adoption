@@ -6,6 +6,7 @@ const GetAllPetsUserController = require("../controllers/GetAllPetsUserControlle
 const GetAllUserAdoptionsController = require("../controllers/GetAllUserAdoptionsController");
 const GetPetByIdController = require("../controllers/GetPetByIdController");
 const DeletePetByIdController = require("../controllers/DeletePetByIdController");
+const EditPetByIdController = require("../controllers/EditPetByIdController");
 
 // middlewares
 const ensureAutenticated = require("../middlewares/ensureAutenticated");
@@ -32,5 +33,12 @@ router.get(
 router.get("/:id", GetPetByIdController.handle);
 
 router.delete("/:id", ensureAutenticated, DeletePetByIdController.handle);
+
+router.patch(
+  "/:id",
+  ensureAutenticated,
+  imageUpload.array("images"),
+  EditPetByIdController.handle
+);
 
 module.exports = router;
