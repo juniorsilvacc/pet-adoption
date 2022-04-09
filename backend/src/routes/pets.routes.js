@@ -7,6 +7,8 @@ const GetAllUserAdoptionsController = require("../controllers/GetAllUserAdoption
 const GetPetByIdController = require("../controllers/GetPetByIdController");
 const DeletePetByIdController = require("../controllers/DeletePetByIdController");
 const EditPetByIdController = require("../controllers/EditPetByIdController");
+const ScheduleController = require("../controllers/ScheduleController");
+const ConcludeAdoption = require("../controllers/ConcludeAdoption");
 
 // middlewares
 const ensureAutenticated = require("../middlewares/ensureAutenticated");
@@ -40,5 +42,9 @@ router.patch(
   imageUpload.array("images"),
   EditPetByIdController.handle
 );
+
+router.patch("/schedule/:id", ensureAutenticated, ScheduleController.handle);
+
+router.patch("/conclude/:id", ensureAutenticated, ConcludeAdoption.handle);
 
 module.exports = router;
