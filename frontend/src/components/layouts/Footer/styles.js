@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DivFooter = styled.footer`
+export const FooterStyled = styled.footer`
   background: #fb1;
   height: 150px;
   display: flex;

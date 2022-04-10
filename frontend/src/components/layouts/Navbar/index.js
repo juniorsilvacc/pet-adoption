@@ -3,33 +3,33 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../../assets/img/Logo.jpg";
 
-import { Container, LogoImg, DivLogo, NavUl, NavLi, Button } from "./styles";
+import { Container, Img, Div, Ul, Li, Button } from "./styles";
 
 export default function Navbar() {
   return (
     <Container>
-      <DivLogo>
-        <LogoImg src={Logo} alt="Logo - Lar Feliz" />
-      </DivLogo>
-      <NavUl>
-        <NavLi>
+      <Div>
+        <Img src={Logo} alt="Logo - Lar Feliz" />
+      </Div>
+      <Ul>
+        <Li>
           <Link to="/">
             <Button>Adoção</Button>
           </Link>
-        </NavLi>
+        </Li>
 
-        <NavLi>
+        <Li>
           <Link to="/login">
             <Button>Entrar</Button>
           </Link>
-        </NavLi>
+        </Li>
 
-        <NavLi>
+        <Li>
           <Link to="/register">
             <Button>Cadastre-se</Button>
           </Link>
-        </NavLi>
-      </NavUl>
+        </Li>
+      </Ul>
     </Container>
   );
 }

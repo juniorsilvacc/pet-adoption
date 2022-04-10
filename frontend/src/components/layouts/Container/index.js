@@ -1,6 +1,6 @@
 import React from "react";
-import { MainContainer } from "../Container/styles";
+import { ContainerStyled } from "../Container/styles";
 
 export default function Container({ children }) {
-  return <MainContainer>{children}</MainContainer>;
+  return <ContainerStyled>{children}</ContainerStyled>;
 }
