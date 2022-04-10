@@ -13,7 +13,7 @@ export const Div = styled.div``;
 export const Img = styled.img`
   width: 75px;
   margin-right: 1em;
-  padding: 0.5rem 0;
+  padding: 0.5em 0;
 `;
 
 export const Ul = styled.ul`
@@ -27,7 +27,7 @@ export const Li = styled.li``;
 export const Button = styled.a`
   text-decoration: none;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.1em;
   padding: 0.5em 0.8em;
   transition: color 500ms;
   &:hover {

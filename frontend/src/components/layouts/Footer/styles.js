@@ -9,5 +9,5 @@ export const FooterStyled = styled.footer`
 `;
 
 export const Text = styled.p`
-  font-size: 18px;
+  font-size: 1em;
 `;
