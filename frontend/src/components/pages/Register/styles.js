@@ -36,3 +36,8 @@ export const Button = styled.input`
     box-shadow: 0 0 0 3px #fea, 0 0 0 4px #fb1;
   }
 `;
+
+export const Text = styled.p`
+  font-size: 1em;
+  margin-top: 1.5em;
+`;

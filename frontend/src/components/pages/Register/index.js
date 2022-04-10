@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Input from "../../form/Input";
-import { Container, Title, Line, Button } from "./styles";
+import { Container, Title, Line, Button, Text } from "./styles";
 
 export default function Register() {
   function handleOnChange(e) {}
@@ -47,6 +48,13 @@ export default function Register() {
 
         <Button type="submit" value="Cadastrar" />
       </form>
+
+      <Text>
+        Já tem cadastro?{" "}
+        <Link to="/login" style={{ color: "#fb1", fontWeight: "bold" }}>
+          Entrar
+        </Link>{" "}
+      </Text>
     </Container>
   );
 }
