@@ -1,13 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// imports
-import Login from "./components/pages/Auth/Login";
-import Register from "./components/pages/Auth/Register";
-import Home from "./components/pages/Auth/Home";
+// components
+import Navbar from "./components/layouts/Navbar";
+import Footer from "./components/layouts/Footer";
+
+// pages
+import Login from "./components/pages/Login";
+import Register from "./components/pages/Register";
+import Home from "./components/pages/Home";
 
 function App() {
   return (
     <Router>
+      <Navbar />
+
       <Routes>
         <Route path="/login" element={<Login />}></Route>
 
@@ -15,6 +21,8 @@ function App() {
 
         <Route path="/" element={<Home />}></Route>
       </Routes>
+
+      <Footer />
     </Router>
   );
 }
