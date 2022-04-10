@@ -4,7 +4,7 @@ import { DivFooter, Text } from "../Footer/styles";
 export default function Footer() {
   return (
     <DivFooter>
-      <Text>Adoções. Todos os direitos reservados.</Text>
+      <Text>Pets Adoções. Todos os direitos reservados - 2022</Text>
     </DivFooter>
   );
 }
