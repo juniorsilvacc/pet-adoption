@@ -2,9 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import events from "../../../utils/events";
 
-import { Div, success, error } from "./styles";
+import { Div } from "./styles";
 
-export default function Message(props) {
+export default function Message() {
   const [visibility, setVisibility] = useState(false);
   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
@@ -17,9 +17,9 @@ export default function Message(props) {
 
       setTimeout(() => {
         setVisibility(false);
-      }, 3000);
+      }, 4000);
     });
   }, []);
 
-  return visibility && <Div className={`${message} ${[type]}`}>{message}</Div>;
+  return visibility && <Div type={type}>{message}</Div>;
 }

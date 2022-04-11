@@ -9,19 +9,17 @@ export default function useAuth() {
 
   async function register(user) {
     let msgText = "Cadastro realizado com sucesso";
-    let msgType = "success";
 
     try {
       const data = await api.post("/users/signup", user).then((response) => {
         return response.data;
       });
       console.log(data);
+      setFlashMessage(msgText, "success");
     } catch (error) {
       msgText = error.response.data.message;
-      msgType = "error";
+      setFlashMessage(msgText, "error");
     }
-
-    setFlashMessage(msgText, msgType);
   }
 
   return { register };
