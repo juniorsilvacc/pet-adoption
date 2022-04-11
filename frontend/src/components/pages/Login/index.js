@@ -4,7 +4,7 @@ import Input from "../../form/Input";
 import { Container, Title, Line, Button, Text } from "./styles";
 
 export default function Login() {
-  function handleOnChange(e) {}
+  function handleChange(e) {}
 
   return (
     <Container>
@@ -15,14 +15,14 @@ export default function Login() {
           text="E-mail"
           type="email"
           name="email"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Input
           text="Senha"
           type="password"
           name="password"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Button type="submit" value="Entrar" />

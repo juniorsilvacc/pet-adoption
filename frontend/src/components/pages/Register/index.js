@@ -1,49 +1,59 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "../../form/Input";
 import { Container, Title, Line, Button, Text } from "./styles";
 
 export default function Register() {
-  function handleOnChange(e) {}
+  const [user, setUser] = useState({});
+
+  function handleChange(e) {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(user);
+  }
 
   return (
     <Container>
       <Title>Cadastre-se</Title>
       <Line></Line>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <Input
           text="Nome"
           type="text"
           name="name"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Input
           text="E-mail"
           type="email"
           name="email"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Input
           text="Telefone"
           type="text"
           name="phone"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Input
           text="Senha"
           type="password"
           name="password"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Input
           text="Confirmação de Senha"
           type="password"
           name="confirmpassword"
-          handleOnChange={handleOnChange}
+          handleOnChange={handleChange}
         />
 
         <Button type="submit" value="Cadastrar" />

@@ -18,7 +18,7 @@ export default function Input({
         name={name}
         id={name}
         placeholder={placeholder}
-        handleOnChange={handleOnChange}
+        onChange={handleOnChange}
         value={value}
         {...(multiple ? { multiple } : "")}
       />

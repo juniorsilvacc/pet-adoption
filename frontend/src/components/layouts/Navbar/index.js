@@ -9,7 +9,9 @@ export default function Navbar() {
   return (
     <Container>
       <Div>
-        <Img src={Logo} alt="Logo - Lar Feliz" />
+        <Link to="/">
+          <Img src={Logo} alt="Logo - Lar Feliz" />
+        </Link>
       </Div>
       <Ul>
         <Li>
