@@ -1,16 +1,34 @@
 import React from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../../form/Input";
 import { Container, Title, Line, Button, Text } from "./styles";
 
+//Context
+import { Context } from "../../../context/UserContext";
+
 export default function Login() {
-  function handleChange(e) {}
+  const [user, setUser] = useState({});
+  const { login } = useContext(Context);
+
+  // Objeto atual e substitui pelo os dados passados
+  function handleChange(e) {
+    setUser({ ...user, [e.target.name]: e.target.value });
+    console.log(user);
+  }
+
+  // enviar
+  function handleSubmit(e) {
+    e.preventDefault();
+    // enviar usuário para o banco
+    login(user);
+  }
 
   return (
     <Container>
       <Title>Entrar</Title>
       <Line></Line>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <Input
           text="E-mail"
           type="email"

@@ -41,7 +41,7 @@ export default function useAuth() {
     history("/");
   }
 
-  async function logout() {
+  function logout() {
     const messageText = "Você está deslogado";
     let messageType = "success";
 
@@ -53,5 +53,23 @@ export default function useAuth() {
     setFlashMessage(messageText, messageType);
   }
 
-  return { register, authenticated, logout };
+  async function login(user) {
+    let messageText = "Login realizado com sucesso";
+    let messageType = "success";
+
+    try {
+      const data = await api.post("users/signin", user).then((response) => {
+        return response.data;
+      });
+
+      await authUser(data);
+    } catch (error) {
+      messageText = error.response.data.message;
+      messageType = "error";
+    }
+
+    setFlashMessage(messageText, messageType);
+  }
+
+  return { register, authenticated, logout, login };
 }
