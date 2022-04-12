@@ -17,9 +17,15 @@ export default function Message() {
 
       setTimeout(() => {
         setVisibility(false);
-      }, 4000);
+      }, 3000);
     });
   }, []);
 
-  return visibility && <Div type={type}>{message}</Div>;
+  return (
+    visibility && (
+      <Div type={type} className={`${message} ${[type]}`}>
+        {message}
+      </Div>
+    )
+  );
 }

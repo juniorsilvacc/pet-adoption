@@ -1,26 +1,45 @@
 import api from "../utils/api";
-
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import useFlashMessage from "./useFlashMessage";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function useAuth() {
+  const [authenticated, setAuthenticated] = useState(false);
   const { setFlashMessage } = useFlashMessage();
+  const history = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+      setAuthenticated(true);
+    }
+  }, []);
 
   async function register(user) {
-    let msgText = "Cadastro realizado com sucesso";
+    let messageText = "Cadastro realizado com sucesso";
+    let messageType = "success";
 
     try {
       const data = await api.post("/users/signup", user).then((response) => {
         return response.data;
       });
-      console.log(data);
-      setFlashMessage(msgText, "success");
+
+      await authUser(data);
     } catch (error) {
-      msgText = error.response.data.message;
-      setFlashMessage(msgText, "error");
+      messageText = error.response.data.message;
+      messageType = "error";
     }
+
+    setFlashMessage(messageText, messageType);
   }
 
-  return { register };
+  async function authUser(data) {
+    setAuthenticated(true);
+    localStorage.setItem("token", JSON.stringify(data.token));
+    history("/");
+  }
+
+  return { register, authenticated };
 }
