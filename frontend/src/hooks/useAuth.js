@@ -41,5 +41,17 @@ export default function useAuth() {
     history("/");
   }
 
-  return { register, authenticated };
+  async function logout() {
+    const messageText = "Você está deslogado";
+    let messageType = "success";
+
+    setAuthenticated(false);
+    localStorage.removeItem("token");
+    api.defaults.headers.Authorization = undefined;
+    history("/");
+
+    setFlashMessage(messageText, messageType);
+  }
+
+  return { register, authenticated, logout };
 }

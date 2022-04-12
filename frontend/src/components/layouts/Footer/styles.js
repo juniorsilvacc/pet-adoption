@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterStyled = styled.footer`
-  background: #fb1;
+  background: linear-gradient(#ffbf00, #f2a50c);
   height: 150px;
   display: flex;
   align-items: center;

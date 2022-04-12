@@ -9,7 +9,7 @@ import { Container, Img, Div, Ul, Li, Button } from "./styles";
 import { Context } from "../../../context/UserContext";
 
 export default function Navbar() {
-  const { authenticated } = useContext(Context);
+  const { authenticated, logout } = useContext(Context);
 
   return (
     <Container>
@@ -27,7 +27,9 @@ export default function Navbar() {
 
         {authenticated ? (
           <>
-            <p>Logado</p>
+            <Li onClick={logout} style={{ cursor: "pointer" }}>
+              <Button>Sair</Button>
+            </Li>
           </>
         ) : (
           <>

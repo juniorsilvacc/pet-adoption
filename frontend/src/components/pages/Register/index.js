@@ -12,12 +12,15 @@ export default function Register() {
   const [user, setUser] = useState({});
   const { register } = useContext(Context);
 
+  // mudança dos campos
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
+  // enviar
   function handleSubmit(e) {
     e.preventDefault();
+    // enviar usuário para o banco
     register(user);
   }
 

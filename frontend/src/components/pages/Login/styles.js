@@ -26,7 +26,7 @@ export const Button = styled.input`
   font-size: 1em;
   border-radius: 0.4em;
   border: none;
-  background-color: #fb1;
+  background: linear-gradient(#ffbf00, #f2a50c);
   cursor: pointer;
   transition: 300ms;
 

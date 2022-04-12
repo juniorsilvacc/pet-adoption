@@ -4,7 +4,7 @@ export const Div = styled.div`
   max-width: 25%;
   padding: 0.5em;
   border: 1px solid #000;
-  margin: 1em auto;
+  margin: 1em auto 0;
   text-align: center;
   border-radius: 5px;
 
