@@ -10,42 +10,42 @@ class CreateUserController {
 
     // validations
     if (!name) {
-      return res.status(422).json({ message: "Name is required" });
+      return res.status(422).json({ message: "O nome é obrigatório" });
     }
 
     if (!email) {
-      return res.status(422).json({ message: "E-mail is required" });
+      return res.status(422).json({ message: "E-mail é obrigatório" });
     }
 
     if (!phone) {
-      return res.status(422).json({ message: "Phone is required" });
+      return res.status(422).json({ message: "Telefone é obrigatório" });
     }
 
     if (!password) {
-      return res.status(422).json({ message: "Password is required" });
+      return res.status(422).json({ message: "A senha é obrigatória" });
     }
 
     if (password.length < 6) {
-      return res.status(422).json({ message: "Minimum 6 characters" });
+      return res.status(422).json({ message: "Mínimo 6 caracteres" });
     }
 
     if (!confirmpassword) {
       return res
         .status(422)
-        .json({ message: "Password confirmation is required" });
+        .json({ message: "A confirmação da senha é necessária" });
     }
 
     if (password != confirmpassword) {
       return res
         .status(422)
-        .json({ message: "Password and confirmation must match" });
+        .json({ message: "A senha e a confirmação devem corresponder" });
     }
 
     // check if user exists
     const userExists = await User.findOne({ email: email });
 
     if (userExists) {
-      return res.status(422).json({ message: "Please use another email" });
+      return res.status(422).json({ message: "Por favor, use outro e-mail" });
     }
 
     // create password

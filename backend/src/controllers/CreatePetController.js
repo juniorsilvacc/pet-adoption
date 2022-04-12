@@ -17,27 +17,27 @@ class CreatePetController {
 
     // validations
     if (!name) {
-      return res.status(422).json({ message: "Name is required" });
+      return res.status(422).json({ message: "O nome é obrigatório" });
     }
 
     if (!age) {
-      return res.status(422).json({ message: "Age is required" });
+      return res.status(422).json({ message: "A idade é obrigatória" });
     }
 
     if (!description) {
-      return res.status(422).json({ message: "Description is required" });
+      return res.status(422).json({ message: "A descrição é obrigatória" });
     }
 
     if (!weight) {
-      return res.status(422).json({ message: "Weight is required" });
+      return res.status(422).json({ message: "O peso é obrigatório" });
     }
 
     if (!color) {
-      return res.status(422).json({ message: "Color is required" });
+      return res.status(422).json({ message: "A cor é obrigatória" });
     }
 
     if (images.length === 0) {
-      return res.status(422).json({ message: "Image is required" });
+      return res.status(422).json({ message: "A imagem é obrigatória" });
     }
 
     const pet = new Pet({
@@ -67,7 +67,7 @@ class CreatePetController {
 
       return res
         .status(201)
-        .json({ message: "Pet created successfully", newPet });
+        .json({ message: "Pet criado com sucesso!", newPet });
     } catch (error) {
       return res.status(500).json({ message: error });
     }

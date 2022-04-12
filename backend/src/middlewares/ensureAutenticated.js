@@ -4,13 +4,13 @@ const auth = require("../config/auth");
 
 const ensureAutenticated = (req, res, next) => {
   if (!req.headers.authorization) {
-    return res.status(401).json({ message: "JWT token is missing" });
+    return res.status(401).json({ message: "O token JWT está ausente" });
   }
 
   const token = getToken(req);
 
   if (!token) {
-    return res.status(401).json({ message: "JWT token is missing" });
+    return res.status(401).json({ message: "O token JWT está ausente" });
   }
 
   try {
@@ -19,7 +19,7 @@ const ensureAutenticated = (req, res, next) => {
 
     next();
   } catch (error) {
-    return res.status(400).json({ message: "JWT token invalid" });
+    return res.status(400).json({ message: "Token JWT inválido" });
   }
 };
 

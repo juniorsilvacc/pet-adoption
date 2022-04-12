@@ -8,14 +8,14 @@ class ScheduleController {
     const { id } = req.params;
 
     if (!ObjectId.isValid(id)) {
-      return res.status(422).json({ message: "ID Invalid" });
+      return res.status(422).json({ message: "ID inválido" });
     }
 
     // check if pet exists
     const pet = await Pet.findById(id);
 
     if (!pet) {
-      return res.status(404).json({ message: "Pet not found" });
+      return res.status(404).json({ message: "Pet não encontrado" });
     }
 
     // check if logged in user registered the pet
@@ -23,9 +23,7 @@ class ScheduleController {
     const user = await getUserByToken(token);
 
     if (pet.user._id.toString() === user._id.toString()) {
-      return res
-        .status(422)
-        .json({ message: "There was a problem processing your request" });
+      return res.status(422).json({ message: "Houve um problema" });
     }
 
     // check if user has already schedule a visit
@@ -33,7 +31,7 @@ class ScheduleController {
       if (pet.adopter._id.equals(user._id)) {
         return res
           .status(422)
-          .json({ message: "Have you already booked a visit for this pet" });
+          .json({ message: "Você já agendou uma visita para esse pet" });
       }
     }
 
@@ -46,11 +44,9 @@ class ScheduleController {
 
     await Pet.findByIdAndUpdate(id, pet);
 
-    return res
-      .status(200)
-      .json({
-        message: `Pet successfully adopted. Contact ${pet.user.name} at ${pet.user.phone}`,
-      });
+    return res.status(200).json({
+      message: `Pet adotado com sucesso. Nome: ${pet.user.name} Telefone: ${pet.user.phone} para contato.`,
+    });
   }
 }
 

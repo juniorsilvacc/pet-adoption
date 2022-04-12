@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 const GetUserByToken = async (token) => {
   if (!token) {
-    return res.status(401).json({ message: "JWT token is missing" });
+    return res.status(401).json({ message: "O token JWT está ausente" });
   }
 
   const decoded = jwt.verify(token, auth.jwt.secret);

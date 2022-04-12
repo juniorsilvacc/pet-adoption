@@ -13,14 +13,14 @@ class EditPetByIdController {
     const updatedData = {};
 
     if (!ObjectId.isValid(id)) {
-      return res.status(422).json({ message: "ID Invalid" });
+      return res.status(422).json({ message: "ID inválido" });
     }
 
     // check if pet exists
     const pet = await Pet.findById(id);
 
     if (!pet) {
-      return res.status(404).json({ message: "Pet not found" });
+      return res.status(404).json({ message: "Pet não encontrado" });
     }
 
     // check if logged in user registered the pet
@@ -28,38 +28,36 @@ class EditPetByIdController {
     const user = await getUserByToken(token);
 
     if (pet.user._id.toString() !== user._id.toString()) {
-      return res
-        .status(422)
-        .json({ message: "There was a problem processing your request" });
+      return res.status(422).json({ message: "Houve um problema" });
     }
 
     // validations
     if (!name) {
-      return res.status(422).json({ message: "Name is required" });
+      return res.status(422).json({ message: "O nome é obrigatório" });
     } else {
       updatedData.name = name;
     }
 
     if (!age) {
-      return res.status(422).json({ message: "Age is required" });
+      return res.status(422).json({ message: "A idade é obrigatória" });
     } else {
       updatedData.age = age;
     }
 
     if (!weight) {
-      return res.status(422).json({ message: "Weight is required" });
+      return res.status(422).json({ message: "O peso é obrigatório" });
     } else {
       updatedData.weight = weight;
     }
 
     if (!color) {
-      return res.status(422).json({ message: "Color is required" });
+      return res.status(422).json({ message: "A cor é obrigatória" });
     } else {
       updatedData.color = color;
     }
 
     if (!images) {
-      return res.status(422).json({ message: "Image is required" });
+      return res.status(422).json({ message: "A imagem é obrigatória" });
     } else {
       updatedData.images = [];
       images.map((image) => {
@@ -69,7 +67,7 @@ class EditPetByIdController {
 
     await Pet.findByIdAndUpdate(id, updatedData);
 
-    return res.status(200).json({ message: "Pet update successfully" });
+    return res.status(200).json({ message: "Pet atualizado com sucesso!" });
   }
 }
 

@@ -17,26 +17,26 @@ class EditUserController {
 
     // validations
     if (!name) {
-      return res.status(422).json({ message: "Name is required" });
+      return res.status(422).json({ message: "O nome é obrigatório" });
     }
 
     user.name = name;
 
     if (!email) {
-      return res.status(422).json({ message: "E-mail is required" });
+      return res.status(422).json({ message: "O e-mail é obrigatório" });
     }
 
     // check if user exists
     const userExists = await User.findOne({ email });
 
     if (user.email !== email && userExists) {
-      return res.status(401).json({ message: "User already exists" });
+      return res.status(401).json({ message: "Usuário já existe" });
     }
 
     user.email = email;
 
     if (!phone) {
-      return res.status(422).json({ message: "Phone is required" });
+      return res.status(422).json({ message: "O telefone é obrigatório" });
     }
 
     user.phone = phone;
@@ -44,7 +44,7 @@ class EditUserController {
     if (password !== confirmpassword) {
       return res
         .status(422)
-        .json({ message: "Password and confirmation must match" });
+        .json({ message: "A senha e a confirmação devem corresponder" });
     } else if (password === confirmpassword && password !== null) {
       // create password
       const salt = await bcrypt.genSalt(12);
@@ -61,7 +61,9 @@ class EditUserController {
         { new: true }
       );
 
-      return res.status(200).json({ message: "User updated successfully" });
+      return res
+        .status(200)
+        .json({ message: "Usuário atualizado com sucesso!" });
     } catch (error) {
       return res.status(500).json({ message: error });
     }
