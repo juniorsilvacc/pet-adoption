@@ -45,7 +45,7 @@ class EditUserController {
       return res
         .status(422)
         .json({ message: "A senha e a confirmação devem corresponder" });
-    } else if (password === confirmpassword && password !== null) {
+    } else if (password === confirmpassword && password !== undefined) {
       // create password
       const salt = await bcrypt.genSalt(12);
       const passwordHash = await bcrypt.hash(password, salt);
