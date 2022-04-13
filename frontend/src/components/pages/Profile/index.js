@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { Div, DivStyled, Title, TextImg, Form, Button } from "./styles";
+import { Div, DivStyled, Title, TextImg, Form } from "./styles";
 
 import Input from "../../form/Input";
+import Button from "../../layouts/Button";
 import ImageProfile from "../../layouts/ImageProfile";
 import useFlashMessage from "../../../hooks/useFlashMessage";
 

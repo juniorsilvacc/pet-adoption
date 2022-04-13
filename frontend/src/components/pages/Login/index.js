@@ -1,8 +1,11 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+
 import Input from "../../form/Input";
-import { Container, Title, Line, Button, Text } from "./styles";
+import Button from "../../layouts/Button";
+
+import { Container, Title, Line, Text } from "./styles";
 
 //Context
 import { Context } from "../../../context/UserContext";
