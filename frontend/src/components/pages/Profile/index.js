@@ -3,11 +3,26 @@ import { useState, useEffect } from "react";
 
 import { Div, Title, TextImg, Form, Button } from "./styles";
 
-import formStyles from "../../form/Input/styles";
 import Input from "../../form/Input";
+
+import api from "../../../utils/api";
 
 export default function Profile() {
   const [user, setUser] = useState({});
+
+  // Pegar usuário pelo token
+  const [token] = useState(localStorage.getItem("token") || "");
+  useEffect(() => {
+    api
+      .get("/users/checkuser", {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token)}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      });
+  }, [token]);
 
   function onFileChange(e) {}
 
