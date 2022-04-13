@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { Div, Title, TextImg, Form, Button } from "./styles";
+import { Div, DivStyled, Title, TextImg, Form, Button } from "./styles";
 
 import Input from "../../form/Input";
+import ImageProfile from "../../layouts/ImageProfile";
 import useFlashMessage from "../../../hooks/useFlashMessage";
 
 import api from "../../../utils/api";
@@ -11,6 +12,7 @@ import api from "../../../utils/api";
 export default function Profile() {
   const [user, setUser] = useState({});
   const { setFlashMessage } = useFlashMessage();
+  const [preview, setPreview] = useState();
 
   // Pegar usuário pelo token
   const [token] = useState(localStorage.getItem("token") || "");
@@ -27,6 +29,7 @@ export default function Profile() {
   }, [token]);
 
   function onFileChange(e) {
+    setPreview(e.target.files[0]);
     setUser({ ...user, [e.target.name]: e.target.files[0] });
   }
 
@@ -66,7 +69,20 @@ export default function Profile() {
   return (
     <Div>
       <Title>Perfil</Title>
-      <TextImg>Foto Perfil</TextImg>
+      <DivStyled>
+        <TextImg>Foto Perfil</TextImg>
+
+        {(user.image || preview) && (
+          <ImageProfile
+            src={
+              preview
+                ? URL.createObjectURL(preview)
+                : `${process.env.REACT_APP_API}images/users/${user.image}`
+            }
+            alt={user.name}
+          />
+        )}
+      </DivStyled>
 
       <Form onSubmit={handleSubmit}>
         <Input

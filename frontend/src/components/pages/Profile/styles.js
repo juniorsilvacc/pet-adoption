@@ -5,6 +5,12 @@ export const Div = styled.div`
   margin: 0 auto;
 `;
 
+export const DivStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Title = styled.h1`
   text-align: center;
   font-family: var(--type-second);
@@ -13,12 +19,12 @@ export const Title = styled.h1`
   margin-top: 0.5em;
 `;
 
-export const Form = styled.form``;
-
 export const TextImg = styled.p`
   text-align: center;
-  margin: 3em 0;
+  margin: 2.5em 0 1em 0;
 `;
+
+export const Form = styled.form``;
 
 export const Button = styled.input`
   width: 200px;
