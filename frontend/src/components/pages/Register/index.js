@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../../form/Input";
-import Button from "../../layouts/Button";
+import Button from "../../form/Button";
 
 import { Container, Title, Line, Text } from "./styles";
 

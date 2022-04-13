@@ -28,10 +28,17 @@ export default function Navbar() {
         {authenticated ? (
           <>
             <Li>
+              <Link to="/users/mypets">
+                <Button>Meus Pets</Button>
+              </Link>
+            </Li>
+
+            <Li>
               <Link to="/users/profile">
                 <Button>Perfil</Button>
               </Link>
             </Li>
+
             <Li onClick={logout} style={{ cursor: "pointer" }}>
               <Button>Sair</Button>
             </Li>
