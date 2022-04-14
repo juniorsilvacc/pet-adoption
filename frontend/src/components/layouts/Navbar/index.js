@@ -21,7 +21,7 @@ export default function Navbar() {
       <Ul>
         <Li>
           <Link to="/">
-            <Button>Adoção</Button>
+            <Button>Adoções</Button>
           </Link>
         </Li>
 
