@@ -22,7 +22,7 @@ export default function Register() {
   // enviar
   function handleSubmit(e) {
     e.preventDefault();
-    // enviar usuário para o banco
+    // enviar dados de usuário para o banco
     register(user);
   }
 
