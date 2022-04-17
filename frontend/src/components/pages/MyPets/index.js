@@ -12,6 +12,10 @@ import {
   DivAvailable,
   AvailableFalse,
   AvailableTrue,
+  ButtonConclude,
+  ButtonEdit,
+  ButtonRemove,
+  DivButtons,
 } from "./styles";
 
 // hooks
@@ -59,7 +63,23 @@ export default function MyPets() {
               <TextName>{pet.name}</TextName>
               <DivAvailable>
                 {pet.available ? (
-                  <AvailableTrue>Disponível para adoção</AvailableTrue>
+                  <>
+                    <AvailableTrue>Disponível para adoção</AvailableTrue>
+                    {pet.adopter && (
+                      <ButtonConclude>Concluir Adoção</ButtonConclude>
+                    )}
+                    <DivButtons>
+                      <ButtonEdit>
+                        <Link
+                          to={`/pet/edit/${pet._id}`}
+                          style={{ color: "#FFF" }}
+                        >
+                          Editar
+                        </Link>
+                      </ButtonEdit>
+                      <ButtonRemove>Excluir</ButtonRemove>
+                    </DivButtons>
+                  </>
                 ) : (
                   <AvailableFalse>Não está disponível</AvailableFalse>
                 )}
