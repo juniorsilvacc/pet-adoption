@@ -92,7 +92,7 @@ export default function MyPets() {
                     <DivButtons>
                       <ButtonEdit>
                         <Link
-                          to={`/pet/edit/${pet._id}`}
+                          to={`/pet/update/${pet._id}`}
                           style={{ color: "#FFF" }}
                         >
                           Editar
