@@ -56,9 +56,7 @@ class EditPetByIdController {
       updatedData.color = color;
     }
 
-    if (!images) {
-      return res.status(422).json({ message: "A imagem é obrigatória" });
-    } else {
+    if (images.length > 0) {
       updatedData.images = [];
       images.map((image) => {
         updatedData.images.push(image.filename);
