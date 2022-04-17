@@ -12,6 +12,7 @@ export const Title = styled.h1`
 
 export const DivStyled = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 `;
 

@@ -44,6 +44,27 @@ export default function MyPets() {
       });
   }, [token]);
 
+  async function removePet(id) {
+    let messageType = "success";
+
+    const data = await api
+      .delete(`/pets/${id}`, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token)}`,
+        },
+      })
+      .then((response) => {
+        setPets(pets.filter((pet) => pet._id !== id));
+        return response.data;
+      })
+      .catch((err) => {
+        messageType = "error";
+        return err.response.data;
+      });
+
+    setFlashMessage(data.message, messageType);
+  }
+
   return (
     <Div>
       <Title>Meus Pets</Title>
@@ -77,7 +98,9 @@ export default function MyPets() {
                           Editar
                         </Link>
                       </ButtonEdit>
-                      <ButtonRemove>Excluir</ButtonRemove>
+                      <ButtonRemove onClick={() => removePet(pet._id)}>
+                        Excluir
+                      </ButtonRemove>
                     </DivButtons>
                   </>
                 ) : (

@@ -6,4 +6,9 @@ export const Img = styled.img`
   border-radius: 0.5em;
   margin: 2em 0;
   border: 1px solid #ffbf00;
+  /* &&:hover {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  } */
 `;
