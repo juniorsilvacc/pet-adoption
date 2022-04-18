@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { Div, Title } from "./styles";
 
 // components
@@ -16,7 +15,6 @@ export default function UpdatePet() {
   const [token] = useState(localStorage.getItem("token") || "");
   const { id } = useParams();
   const { setFlashMessage } = useFlashMessage();
-  const history = useNavigate();
 
   useEffect(() => {
     api
@@ -61,7 +59,6 @@ export default function UpdatePet() {
       });
 
     setFlashMessage(data.message, messageType);
-    history("/users/mypets");
   }
 
   return (
