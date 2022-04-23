@@ -104,7 +104,7 @@ export default function MyPets() {
                     </DivButtons>
                   </>
                 ) : (
-                  <AvailableFalse>Não está disponível</AvailableFalse>
+                  <AvailableFalse>Adoção concluída</AvailableFalse>
                 )}
               </DivAvailable>
             </DivPet>

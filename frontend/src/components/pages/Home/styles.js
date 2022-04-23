@@ -21,13 +21,13 @@ export const Text = styled.p`
 export const DivCard = styled.div`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  width: 22%;
-  margin: 1.5%;
+  width: 25%;
+  margin: 2%;
 `;
 
 export const DivPet = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
@@ -43,14 +43,46 @@ export const NamePet = styled.p`
   font-size: 1.1em;
   font-weight: bold;
   margin: 0.4em 0;
+  text-align: center;
 `;
 
 export const TextDetails = styled.div`
-  text-decoration: underline;
-  font-size: 0.8em;
+  text-align: center;
+  font-size: 0.7em;
+  border: none;
+  padding: 0.4em;
+  border-radius: 0.3em;
+  background-color: #fff1ce;
+  transition: background-color 0.4s;
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
+  &&:hover {
+    background-color: #ffe7aa;
+    transform: scale(1.1);
+  }
 `;
 
-export const TextPetAdoption = styled.p``;
+export const TextDisponible = styled.p`
+  color: #155724;
+  background-color: #d4edda;
+  padding: 0.5em;
+  width: 100%;
+  border-radius: 0.3em;
+  font-size: 0.8em;
+  margin: 0.5em 0;
+  text-align: center;
+`;
+
+export const TextPetAdoption = styled.p`
+  color: #721c24;
+  background-color: #f8d7da;
+  padding: 0.5em;
+  width: 100%;
+  border-radius: 0.3em;
+  font-size: 0.8em;
+  margin: 0.5em 0;
+  text-align: center;
+`;
 
 export const TextFalse = styled.p`
   font-size: 1.2em;

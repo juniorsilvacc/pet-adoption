@@ -13,6 +13,7 @@ import {
   NamePet,
   TextDetails,
   TextPetAdoption,
+  TextDisponible,
 } from "./styles";
 
 import api from "../../../utils/api";
@@ -43,13 +44,18 @@ export default function Home() {
               ></ImgPet>
               <NamePet>{pet.name}</NamePet>
               {pet.available ? (
-                <TextDetails>
-                  <Link to={`pets/${pet._id}`} style={{}}>
-                    Veja mais detalhes
-                  </Link>
-                </TextDetails>
+                <>
+                  <TextDisponible>
+                    <p>Disponível para doação</p>
+                  </TextDisponible>
+                  <TextDetails>
+                    <Link to={`pets/${pet._id}`} style={{}}>
+                      Veja mais detalhes
+                    </Link>
+                  </TextDetails>
+                </>
               ) : (
-                <TextPetAdoption>Animal adotado</TextPetAdoption>
+                <TextPetAdoption>{pet.name} foi adotado 😍</TextPetAdoption>
               )}
             </DivCard>
           ))}
