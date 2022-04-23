@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { Div } from "./styles";
+import {
+  DivContainer,
+  Div,
+  Title,
+  Text,
+  DivPet,
+  DivCard,
+  TextFalse,
+  ImgPet,
+  NamePet,
+  TextDetails,
+  TextPetAdoption,
+} from "./styles";
 
 import api from "../../../utils/api";
 
@@ -15,8 +27,36 @@ export default function Home() {
   }, []);
 
   return (
-    <Div>
-      <h1>Página para doações de pets</h1>
-    </Div>
+    <DivContainer>
+      <Div>
+        <Title>Adote um animal de estimação</Title>
+        <Text>Veja os detalhes de cada um deles</Text>
+      </Div>
+      <DivPet>
+        {pets.length > 0 &&
+          pets.map((pet, key) => (
+            <DivCard key={key}>
+              <ImgPet
+                style={{
+                  backgroundImage: `url(${process.env.REACT_APP_API}/images/pets/${pet.images[0]})`,
+                }}
+              ></ImgPet>
+              <NamePet>{pet.name}</NamePet>
+              {pet.available ? (
+                <TextDetails>
+                  <Link to={`pets/${pet._id}`} style={{}}>
+                    Veja mais detalhes
+                  </Link>
+                </TextDetails>
+              ) : (
+                <TextPetAdoption>Animal adotado</TextPetAdoption>
+              )}
+            </DivCard>
+          ))}
+        {pets.length === 0 && (
+          <TextFalse>Não há pets disponivéis para adoção.</TextFalse>
+        )}
+      </DivPet>
+    </DivContainer>
   );
 }
