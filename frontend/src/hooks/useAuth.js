@@ -58,7 +58,7 @@ export default function useAuth() {
     let messageType = "success";
 
     try {
-      const data = await api.post("users/signin", user).then((response) => {
+      const data = await api.post("/users/signin", user).then((response) => {
         return response.data;
       });
 

@@ -17,7 +17,6 @@ export default function Login() {
   // Objeto atual e substitui pelo os dados passados
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
-    console.log(user);
   }
 
   // enviar

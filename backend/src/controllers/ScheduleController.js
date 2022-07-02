@@ -23,7 +23,10 @@ class ScheduleController {
     const user = await getUserByToken(token);
 
     if (pet.user._id.toString() === user._id.toString()) {
-      return res.status(422).json({ message: "Houve um problema" });
+      return res.status(422).json({
+        message:
+          "Houve um problema, Você não pode agendar uma visita com seu próprio Pet",
+      });
     }
 
     // check if user has already schedule a visit

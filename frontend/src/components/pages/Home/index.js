@@ -49,7 +49,7 @@ export default function Home() {
                     <p>Disponível para doação</p>
                   </TextDisponible>
                   <TextDetails>
-                    <Link to={`pets/${pet._id}`} style={{}}>
+                    <Link to={`pet/${pet._id}`} style={{}}>
                       Veja mais detalhes
                     </Link>
                   </TextDetails>
