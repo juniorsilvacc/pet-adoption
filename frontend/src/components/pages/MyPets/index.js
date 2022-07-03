@@ -65,6 +65,29 @@ export default function MyPets() {
     setFlashMessage(data.message, messageType);
   }
 
+  async function handleConclude(id) {
+    let messageType = "success";
+
+    const data = await api
+      .patch(`/pets/conclude/${id}`, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token)}`,
+        },
+      })
+      .then((response) => {
+        return response;
+      })
+      .catch((err) => {
+        messageType = "error";
+        return err.response.data;
+      });
+
+    setFlashMessage(data.message, messageType);
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 500);
+  }
+
   return (
     <Div>
       <Title>Meus Pets</Title>
@@ -85,9 +108,14 @@ export default function MyPets() {
               <DivAvailable>
                 {pet.available ? (
                   <>
-                    <AvailableTrue>Disponível para adoção</AvailableTrue>
                     {pet.adopter && (
-                      <ButtonConclude>Concluir Adoção</ButtonConclude>
+                      <ButtonConclude
+                        onClick={() => {
+                          handleConclude(pet._id);
+                        }}
+                      >
+                        Concluir Adoção
+                      </ButtonConclude>
                     )}
                     <DivButtons>
                       <ButtonEdit>

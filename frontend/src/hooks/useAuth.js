@@ -63,6 +63,7 @@ export default function useAuth() {
       });
 
       await authUser(data);
+      history("/users/mypets");
     } catch (error) {
       messageText = error.response.data.message;
       messageType = "error";

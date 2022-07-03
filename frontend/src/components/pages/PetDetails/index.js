@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import {
   Div,
@@ -13,7 +13,6 @@ import {
   DivInfo,
   Description,
   NotCount,
-  LinkA,
 } from "./styles";
 
 import useFlashMessage from "../../../hooks/useFlashMessage";
@@ -32,11 +31,11 @@ export default function PetDetails() {
     });
   }, [id]);
 
-  async function schedule() {
+  async function schedule(id) {
     let messageType = "success";
 
     const data = await api
-      .patch(`pets/schedule/${pet._id}`, {
+      .patch(`pets/schedule/${id}`, {
         Authorization: `Bearer ${JSON.parse(token)}`,
       })
       .then((response) => {
@@ -83,7 +82,13 @@ export default function PetDetails() {
           </DivContainer>
 
           {token ? (
-            <Button onClick={schedule}>Solicitar uma visita</Button>
+            <Button
+              onClick={() => {
+                schedule(pet._id);
+              }}
+            >
+              Solicitar uma visita
+            </Button>
           ) : (
             <NotCount>
               Você precisa criar uma conta para solicitar a visita

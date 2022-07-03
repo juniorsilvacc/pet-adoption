@@ -34,6 +34,12 @@ export default function Navbar() {
             </Li>
 
             <Li>
+              <Link to="/users/myadoptions">
+                <Button>Minhas Adoções</Button>
+              </Link>
+            </Li>
+
+            <Li>
               <Link to="/users/profile">
                 <Button>Perfil</Button>
               </Link>

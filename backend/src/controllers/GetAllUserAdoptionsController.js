@@ -1,5 +1,6 @@
 const Pet = require("../models/Pet");
 const User = require("../models/User");
+const token = require("../helpers/GetToken");
 
 class GetAllUserAdoptionsController {
   static async handle(req, res) {

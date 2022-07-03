@@ -32,12 +32,13 @@ export const DivAvailable = styled.div``;
 
 export const AvailableFalse = styled.p`
   color: #721c24;
+  width: 100%;
   background-color: #f8d7da;
   padding: 0.5em;
-  width: 200px;
   border-radius: 0.5em;
   font-size: 0.9em;
   margin: 0.5em 0 0.8em 0;
+  text-align: center;
 `;
 
 export const AvailableTrue = styled.p`
@@ -53,9 +54,25 @@ export const AvailableTrue = styled.p`
 export const DivButtons = styled.div`
   display: flex;
   width: 300px;
+  margin-top: 0.5rem;
 `;
 
-export const ButtonConclude = styled.button``;
+export const ButtonConclude = styled.button`
+  height: 35px;
+  width: 100%;
+  margin: 0.8rem 0;
+  border: none;
+  color: #155724;
+  background-color: #d4edda;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 
 export const ButtonEdit = styled.button`
   height: 35px;
