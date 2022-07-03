@@ -1,6 +1,6 @@
 <h1 align="center">Adoções de Pet</h1>
 
-<div>
+<div align="left">
   <img src="https://user-images.githubusercontent.com/43589505/177047829-69b718cd-6ffd-4482-bf02-15168bcb6fc0.png" width="500" height="450" /> <img src="https://user-images.githubusercontent.com/43589505/177047828-b1d375f6-f00c-4a80-af0e-70fa564ec312.png" width="500" height="450" />
   <img src="https://user-images.githubusercontent.com/43589505/177047886-28d09ad4-2f7b-49d5-b279-5cbeebc63b80.png" width="500" height="450" /> <img src="https://user-images.githubusercontent.com/43589505/177047889-f7075c37-6351-4ec3-a271-65d214289d9d.png" width="500" height="450" />
   <img src="https://user-images.githubusercontent.com/43589505/177047890-a3db2ddb-c2a9-4a33-9860-17319ec71dec.png" width="500" height="450" /> <img src="https://user-images.githubusercontent.com/43589505/177047892-e49ba58c-8f29-4245-be0c-2bf1205d9ec2.png" width="500" height="450" /> 
